@@ -1,24 +1,24 @@
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
-import Template from '.'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import Template from '.';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class main{
     static mainClass
 
     constructor(){
-        if(main.mainClass)return main.mainClass
-        main.mainClass = this
+        if(main.mainClass)return main.mainClass;
+        main.mainClass = this;
 
-        this.sections = [...document.querySelectorAll('section')]
-        this.logoPieces = [...document.querySelectorAll('svg')]
-        this.loader = document.querySelector('.loader')
-        this.logo = document.querySelector('.logo')
-        this.threeD = new Template(document.getElementById('container'), this.sections)
+        this.sections = [...document.querySelectorAll('section')];
+        this.logoPieces = [...document.querySelectorAll('svg')];
+        this.loader = document.querySelector('.loader');
+        this.logo = document.querySelector('.logo');
+        this.threeD = new Template(document.getElementById('container'), this.sections);
 
         
-        this.loaderAnimations()
+        this.loaderAnimations();
     }
     loaderAnimations(){
         gsap.to(this.logoPieces,{
@@ -39,7 +39,7 @@ export default class main{
                     scrub: true,
                     // markers: true,
                     onEnter:()=>{
-                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:1})
+                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:1});
                         gsap.from([...sect.querySelectorAll('.anim')],{
                             opacity: 0,
                             y: 50,
@@ -49,7 +49,7 @@ export default class main{
                         })
                     },
                     onLeave:()=>{
-                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:0})
+                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:0});
                         gsap.from([...sect.querySelectorAll('.anim')],{
                             opacity: 1,
                             y: 10,
@@ -59,7 +59,7 @@ export default class main{
                         })
                     },
                     onEnterBack:()=>{
-                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:1})
+                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:1});
                         gsap.from([...sect.querySelectorAll('.anim')],{
                             opacity: 0,
                             y: -50,
@@ -69,7 +69,7 @@ export default class main{
                         })
                     },
                     onLeaveBack:()=>{
-                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:0})
+                        gsap.set([...sect.querySelectorAll('.anim')],{opacity:0});
                         gsap.from([...sect.querySelectorAll('.anim')],{
                             opacity: 1,
                             y: 50,
@@ -86,4 +86,4 @@ export default class main{
     }
 }
 
-new main()
+new main();
