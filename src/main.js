@@ -5,7 +5,7 @@ import Template from '.';
 gsap.registerPlugin(ScrollTrigger);
 
 export default class main{
-    static mainClass;
+    static mainClass
 
     constructor(){
         if(main.mainClass)return main.mainClass;
